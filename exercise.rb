@@ -6,34 +6,37 @@ class Exercise
   def self.marklar(str)
     # TODO: Implement this method
     #mStrgs = str.scan(/[\w'-]+|[[:punct:]]+/)
-    mStrgs = str.split
-    for mWord in mStrgs
-      if mWord.length > 4 then
-        #print mWord 
-        #print mWord.length
-        mWord = "marklar"
-      end  
-      if /[[:upper:]]/.match(mWord[0]) then
-        mWord = "Marklar"
-      end  
-    end
-    mStrgs.map!{
-      |mWord| 
-      if mWord.length > 4 then
-        print mWord 
-        print mWord.length
+    # mStrgs = str.split
+    # for mWord in mStrgs
+    #   if mWord.length > 4 then
+    #     #print mWord 
+    #     #print mWord.length
+    #     mWord = "marklar"
+    #   end  
+    #   if /[[:upper:]]/.match(mWord[0]) then
+    #     mWord = "Marklar"
+    #   end  
+    # end
+    # mStrgs.map!{
+    #   |mWord| 
+    #   if mWord.length > 4 then
+    #     print mWord 
+    #     print mWord.length
 
-        if /[[:upper:]]/.match(mWord[0]) then
-          mWord.gsub!(/\w+/, "Marklar")
-        else
-          mWord.gsub!(/\w+/, "marklar")
-        end 
-      else
-        mWord = mWord  
-      end  
+    #     if /[[:upper:]]/.match(mWord[0]) then
+    #       mWord.gsub!(/\w+/, "Marklar")
+    #     else
+    #       mWord.gsub!(/\w+/, "marklar")
+    #     end 
+    #   else
+    #     mWord = mWord  
+    #   end  
       
-    }
-    return mStrgs.join(" ")
+    # }
+    # return mStrgs.join(" ")
+    mSentence = str.gsub(/\w{5,}/){|w| /[[:upper:]]/.match(w[0])? "Marklar" : "marklar"}
+    #str.gsub!(/[A-Z](\w{4,})/, "Marklar")
+    return mSentence
   end
 
   # Return the sum of all even numbers in the Fibonacci sequence, up to
