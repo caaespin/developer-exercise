@@ -5,38 +5,9 @@ class Exercise
   # If the word being replaced has a capital first letter, it should instead be replaced with "Marklar".
   def self.marklar(str)
     # TODO: Implement this method
-    #mStrgs = str.scan(/[\w'-]+|[[:punct:]]+/)
-    # mStrgs = str.split
-    # for mWord in mStrgs
-    #   if mWord.length > 4 then
-    #     #print mWord 
-    #     #print mWord.length
-    #     mWord = "marklar"
-    #   end  
-    #   if /[[:upper:]]/.match(mWord[0]) then
-    #     mWord = "Marklar"
-    #   end  
-    # end
-    # mStrgs.map!{
-    #   |mWord| 
-    #   if mWord.length > 4 then
-    #     print mWord 
-    #     print mWord.length
-
-    #     if /[[:upper:]]/.match(mWord[0]) then
-    #       mWord.gsub!(/\w+/, "Marklar")
-    #     else
-    #       mWord.gsub!(/\w+/, "marklar")
-    #     end 
-    #   else
-    #     mWord = mWord  
-    #   end  
-      
-    # }
-    # return mStrgs.join(" ")
-    mSentence = str.gsub(/\w{5,}/){|w| /[[:upper:]]/.match(w[0])? "Marklar" : "marklar"}
-    #str.gsub!(/[A-Z](\w{4,})/, "Marklar")
-    return mSentence
+    #Use regex conditions to get the string that is 5 or more characters. Then ask if it's first character is
+    #upper case or lower case.
+    return str.gsub(/\w{5,}/){|w| /[[:upper:]]/.match(w[0])? "Marklar" : "marklar"}
   end
 
   # Return the sum of all even numbers in the Fibonacci sequence, up to
@@ -47,16 +18,16 @@ class Exercise
     # TODO: Implement this method
     #return 0 if nth <= 1
     sum = 0
-    i = nth
+    #i = nth
+    #f1 and f2 are the initial fibonacci numbers
     f1, f2 = 0, 1
-    while i > 0 do
+    while nth > 0 do
       if f2%2 == 0 then
         sum += f2
       end  
-      i -= 1
+      nth -= 1
       f1, f2 = f2, f1 + f2
     end
     return sum
   end
-
 end
