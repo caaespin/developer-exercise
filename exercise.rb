@@ -24,9 +24,9 @@ class Exercise
         print mWord.length
 
         if /[[:upper:]]/.match(mWord[0]) then
-          mWord.gsub!(/[[A-Z]+[a-z]]/, "Marklar")
+          mWord.gsub!(/\w+/, "Marklar")
         else
-          mWord.gsub!(/[[A-Z]+[a-z]]/, "marklar")
+          mWord.gsub!(/\w+/, "marklar")
         end 
       else
         mWord = mWord  
